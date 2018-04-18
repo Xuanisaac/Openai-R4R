@@ -4,7 +4,6 @@ from keras.optimizers import Adam
 from keras import backend as K
 
 import random
-import pandas as pd
 
 import os
 from keras.models import Sequential
@@ -138,7 +137,7 @@ agent = SolutionAgent(state_dim=env.observation_space.shape[0], action_dim=env.a
                     gamma=0.99, updateTargetFreq=600)
 
 
-print "-------------------------Training Mode-----------------------"
+print( "-------------------------Training Mode-----------------------")
 numOfEpisodes = 1000
 testmode = False
 window_avg = [0] * 100
@@ -170,13 +169,13 @@ for idx in xrange(numOfEpisodes):
     if curmean > max_mean:
         max_mean = curmean
     # if max_mean > 200: break
-    print 'Episode NO.%d:  Reward = %.2f, Mean: %.2f Loss = %f, Steps = %d' % (idx+1,total_reward,curmean,loss,numSteps)
+    print ('Episode NO.{%d}:  Reward = {%.2f}, Mean: {%.2f} Loss = {%f}, Steps = {%d}'.format(idx+1,total_reward,curmean,loss,numSteps))
     train_file.write(total_reward)
     train_file.write('\n')
 
 train_file.close()
-print "------------End of Training:   max mean %.2f-----------------" % (max_mean)
-print "-------------------------Test Mode-----------------------"
+print ("------------End of Training:   max mean {%.2f}-----------------".format(max_mean))
+print ("-------------------------Test Mode-----------------------")
 
 numOfEpisodes = 1000
 testmode = True
@@ -198,10 +197,10 @@ for idx in xrange(numOfEpisodes):
         if done: break
     test_file.write(str(total_reward))
     test_file.write('\n')
-    print "Reward: %.2f" % (total_reward)
+    print ("Reward: {%.2f}".format(total_reward))
 
 env.close()
 
-gym.upload('./monitor', api_key="")
+# gym.upload('./monitor', api_key="")
 
 
