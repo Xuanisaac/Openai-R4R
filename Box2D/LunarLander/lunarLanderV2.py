@@ -161,7 +161,8 @@ for idx in xrange(numOfEpisodes):
         if not testmode:
             agent.evaluate(prevState, action, reward, currSatet, done)
             loss += agent.learn()
-        if done: break
+        if done: 
+            break
 
     window_avg.pop(0)
     window_avg.append(total_reward)
