@@ -1,12 +1,12 @@
 # Files being used
-
+```
 |-- tensorflow-char-rnn/
 |   |-- data/
 |   |   |-- stupidstuff.txt      ## joke dataset for training (originally in json format)
 |   |-- train.py                 ## training script
 |   |-- sample.py                ## sampling script
-|   |-- output/                  ## the default output path , with the example model trained using joke dataset
-
+|   |-- output/                  ## the default output path , with the example model trained using joke dataset```
+```
 # Quick start for training
 
 `python train.py --data_file=data/stupidstuff.txt --num_epochs=10`
